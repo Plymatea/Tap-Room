@@ -5,6 +5,7 @@ function Header() {
     <React.Fragment>
       <h1>Fiore's Tap House</h1>
       <h3>Who are you going to choose to be today?</h3>
+      <hr/>
     </React.Fragment>
   )
 }

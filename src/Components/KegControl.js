@@ -1,4 +1,5 @@
 import React from "react";
+import KegList from "./KegList";
 
 class KegControl extends React.Component {
 
@@ -9,11 +10,29 @@ class KegControl extends React.Component {
         {
           name: 'Cider',
           brand: 'Portland Cider Company',
-          price: 6,
+          price: 6.5,
           abv: "5%",
           pintsRemaining: 124,
           pintsWhenFull: 124,
           id: 1
+        },
+        {
+          name: 'Ale',
+          brand: 'Widmer',
+          price: 5.5,
+          abv: "5.5%",
+          pintsRemaining: 124,
+          pintsWhenFull: 124,
+          id: 2
+        },
+        {
+          name: 'IPA',
+          brand: 'FullSail',
+          price: 6,
+          abv: "7.2%",
+          pintsRemaining: 124,
+          pintsWhenFull: 124,
+          id: 3
         },
       ],
     };
@@ -23,7 +42,7 @@ class KegControl extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* <KegList /> */}
+        <KegList kegList ={this.state.mainKegList}/>
       </React.Fragment>
     )
   }
