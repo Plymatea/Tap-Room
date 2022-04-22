@@ -10,8 +10,9 @@ function KegDetail(props) {
       <h3>Name: {keg.name}</h3>
       <h3>Brand: {keg.brand}</h3>
       <h3>ABV: {keg.abv}</h3>
-      <h3>Pint in full Keg: {keg.pintsWhenFull}</h3>
-      <h3>Pints remaining this keg: {keg.pintsRemaining}</h3>
+      <h3>Pints remaining: {keg.pintsRemaining}</h3>
+      <h3>Pints new Keg: {keg.pintsWhenFull}</h3>
+      <button onClick={ () => props.onEditingKegClick(keg.id)}>Edit Ticket</button>
     </React.Fragment>
   )
 };

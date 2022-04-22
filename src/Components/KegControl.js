@@ -1,6 +1,8 @@
 import React from "react";
 import KegList from "./KegList";
 import KegDetail from "./KegDetail";
+import EditingKegDetails from "./EditingKegDetails";
+
 
 class KegControl extends React.Component {
 
@@ -8,6 +10,7 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       selectedKeg: null,
+      editing: false,
       mainKegList: [
         {
           name: 'Cider',
@@ -23,36 +26,57 @@ class KegControl extends React.Component {
           brand: 'Widmer',
           price: 5.5,
           abv: "5.5%",
-          pintsRemaining: 124,
+          pintsRemaining: 90,
           pintsWhenFull: 124,
           id: 2
         },
-        {
-          name: 'IPA',
-          brand: 'FullSail',
-          price: 6,
-          abv: "7.2%",
-          pintsRemaining: 124,
-          pintsWhenFull: 124,
-          id: 3
-        }
       ],
     };
   }
 
   handleSelectKegClick = (id) => {
-    console.log("handleSelectKegClick")
     const selectedKeg = this.state.mainKegList.filter( (keg) => keg.id === id)[0];
-    console.log({selectedKeg})
     this.setState({selectedKeg: selectedKeg})
+  }
+
+  handleEditingKegClick = () => {
+    this.setState({editing: true})
+  }
+
+  handleEditingKegInList = (kegToEdit) => {
+    const editedMainKegList = this.state.mainKegList
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
+    this.setState({
+        mainKegList: editedMainKegList,
+        editing: false,
+        selectedKeg: kegToEdit
+      });
   }
 
   render() {
     let currentlyVisibleState = null
-    if (this.state.selectedKeg != null){
+    if (this.state.selectedKeg != null && this.state.editing){
       currentlyVisibleState = (
         <React.Fragment>
-          <KegDetail keg={this.state.selectedKeg}/>
+          <KegDetail 
+            keg={this.state.selectedKeg}
+            onEditingKegClick = {this.handleEditingKegClick}
+          />
+          <EditingKegDetails 
+            onEditingKegInList={this.handleEditingKegInList}
+            selectedKeg = {this.state.selectedKeg}
+          />
+        </React.Fragment>
+      )
+    } 
+    else if (this.state.selectedKeg != null) {
+      currentlyVisibleState = (
+        <React.Fragment>
+          <KegDetail 
+            keg={this.state.selectedKeg}
+            onEditingKegClick = {this.handleEditingKegClick}
+          />
         </React.Fragment>
       )
     }
