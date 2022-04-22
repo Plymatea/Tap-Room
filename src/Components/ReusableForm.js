@@ -8,27 +8,34 @@ function ReusableForm (props) {
       <input
         type='text'
         name='name'
-        placeholder={props.selectedKeg.name} />
+        defaultValue={props.selectedKeg.name} 
+      />
       <input
         type='text'
         name='brand'
-        placeholder={props.selectedKeg.brand} />
+        defaultValue={props.selectedKeg.brand} 
+      />
       <input
         type='number'
         name='price'
-        placeholder={props.selectedKeg.price}/>
+        step={.01}
+        defaultValue={props.selectedKeg.price}
+      />
       <input
         type='text'
         name='abv'
-        placeholder={props.selectedKeg.abv}/>
+        defaultValue={props.selectedKeg.abv}
+      />
       <input
         type='number'
         name='pintsRemaining'
-        placeholder={props.selectedKeg.pintsRemaining} />
+        defaultValue={props.selectedKeg.pintsRemaining} 
+      />
       <input
         type='number'
         name='pintWhenFull'
-        placeholder={props.selectedKeg.pintsWhenFull} />
+        defaultValue={props.selectedKeg.pintsWhenFull} 
+      />
       <button type='submit'>{props.buttonText}</button>
     </form>
   </React.Fragment>

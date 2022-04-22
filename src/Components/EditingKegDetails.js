@@ -2,9 +2,8 @@ import React from "react";
 import ReusableForm from "./ReusableForm";
 
 function EditKeg (props) {
-  const {keg} = props;
 
-  function handleEditEditFormSubmission(e) {
+  function handleEditFormSubmission(e) {
     e.preventDefault();
     props.onEditingKegInList({
       name: e.target.name.value, 
@@ -13,15 +12,16 @@ function EditKeg (props) {
       abv: e.target.abv.value, 
       pintsRemaining: e.target.pintsRemaining.value, 
       pintsWhenFull: e.target.pintWhenFull.value,
-      id: keg.id,
+      id: props.selectedKeg.id,
     })
   }
     
   return (
     <React.Fragment>
-      <ReusableForm 
+      <ReusableForm
+        selectedKeg = {props.selectedKeg}
         buttonText = "Finish Editing"
-        formSubmissionHandler = {handleEditEditFormSubmission}
+        formSubmissionHandler = {handleEditFormSubmission}
       />
     </React.Fragment>
   )
