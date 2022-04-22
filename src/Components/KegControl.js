@@ -1,5 +1,6 @@
 import React from "react";
 import KegList from "./KegList";
+import KegDetail from "./KegDetail";
 
 class KegControl extends React.Component {
 
@@ -37,7 +38,6 @@ class KegControl extends React.Component {
         }
       ],
     };
-    // this.handleSelectKegClick = this.handleSelectKegClick.bind(this);
   }
 
   handleSelectKegClick = (id) => {
@@ -48,11 +48,20 @@ class KegControl extends React.Component {
   }
 
   render() {
+    let currentlyVisibleState = null
+    if (this.state.selectedKeg != null){
+      currentlyVisibleState = (
+        <React.Fragment>
+          <KegDetail keg={this.state.selectedKeg}/>
+        </React.Fragment>
+      )
+    }
     return (
       <React.Fragment>
         <KegList 
         kegList ={this.state.mainKegList}
         onSelectKegClick ={this.handleSelectKegClick}/>
+        {currentlyVisibleState}
       </React.Fragment>
     )
   }
