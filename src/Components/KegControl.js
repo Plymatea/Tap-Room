@@ -54,6 +54,15 @@ class KegControl extends React.Component {
       });
   }
 
+  handleSellingPint = (id) => {
+    const editedMainKegList = this.state.mainKegList.map((keg) => 
+      keg.id === id ? ({...keg, pintsRemaining: keg.pintsRemaining-1 }) : ({...keg}))
+    this.setState({
+    mainKegList: editedMainKegList,
+    selectedKeg: null
+    })
+  }
+
   render() {
     let currentlyVisibleState = null
     if (this.state.selectedKeg != null && this.state.editing){
@@ -83,6 +92,7 @@ class KegControl extends React.Component {
     return (
       <React.Fragment>
         <KegList 
+        onSellingPint ={this.handleSellingPint}
         kegList ={this.state.mainKegList}
         onSelectKegClick ={this.handleSelectKegClick}/>
         {currentlyVisibleState}

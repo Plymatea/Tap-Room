@@ -14,6 +14,7 @@ function KegList (props) {
           pintsWhenFull={keg.pintsWhenFull}
           key={keg.id}
           id={keg.id} 
+          onSellingPint = {props.onSellingPint}
           onSelectKegClick ={props.onSelectKegClick}
         />
       )}

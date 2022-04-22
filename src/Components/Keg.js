@@ -5,8 +5,11 @@ function Keg (props) {
     <React.Fragment>
         <div onClick = { ()=> props.onSelectKegClick(props.id)}>
         <h3>{props.name} - {props.brand}</h3>
-        <p><em>ABV: {props.abv} - Pint: ${props.price}</em></p>
+        <p><em>ABV: {props.abv} - Pnt: ${props.price}</em></p>
+        <p>Pints Remaing: {props.pintsRemaining}</p>
         </div>
+        <button onClick={ () => props.onSellingPint(props.id)}>Sell a Pint</button>
+        
         <hr/>
     </React.Fragment>
   );
