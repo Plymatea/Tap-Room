@@ -6,6 +6,7 @@ class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedKeg: null,
       mainKegList: [
         {
           name: 'Cider',
@@ -33,16 +34,25 @@ class KegControl extends React.Component {
           pintsRemaining: 124,
           pintsWhenFull: 124,
           id: 3
-        },
+        }
       ],
     };
-    // this.handleClick = this.handleClick.bind(this);
+    // this.handleSelectKegClick = this.handleSelectKegClick.bind(this);
+  }
+
+  handleSelectKegClick = (id) => {
+    console.log("handleSelectKegClick")
+    const selectedKeg = this.state.mainKegList.filter( (keg) => keg.id === id)[0];
+    console.log({selectedKeg})
+    this.setState({selectedKeg: selectedKeg})
   }
 
   render() {
     return (
       <React.Fragment>
-        <KegList kegList ={this.state.mainKegList}/>
+        <KegList 
+        kegList ={this.state.mainKegList}
+        onSelectKegClick ={this.handleSelectKegClick}/>
       </React.Fragment>
     )
   }
