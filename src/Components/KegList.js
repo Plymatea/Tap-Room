@@ -1,5 +1,7 @@
 import React from "react";
 import Keg from "./Keg";
+import PropTypes from "prop-types";
+
 
 function KegList (props) {
   return (
@@ -21,5 +23,11 @@ function KegList (props) {
     </React.Fragment>
   )
 };
+
+KegList.propTypes = {
+  kegList: PropTypes.array,
+  onSelectKegClick: PropTypes.func,
+  onSellingPint: PropTypes.func,
+}
 
 export default KegList;

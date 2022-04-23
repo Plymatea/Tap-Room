@@ -1,5 +1,6 @@
 import React from "react";
 import ReusableForm from "./ReusableForm";
+import PropTypes from "prop-types";
 
 function EditKeg (props) {
 
@@ -25,6 +26,11 @@ function EditKeg (props) {
       />
     </React.Fragment>
   )
+}
+
+EditKeg.propTypes = {
+  onEditingKegInList: PropTypes.func,
+  selectedKeg: PropTypes.object
 }
 
 export default EditKeg;
