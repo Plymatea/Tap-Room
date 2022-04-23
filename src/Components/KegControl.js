@@ -17,7 +17,7 @@ class KegControl extends React.Component {
           brand: 'Portland Cider Company',
           price: 6.5,
           abv: "5%",
-          pintsRemaining: 124,
+          pintsRemaining: 10,
           pintsWhenFull: 124,
           id: 1
         },
@@ -45,8 +45,11 @@ class KegControl extends React.Component {
 
   handleEditingKegInList = (kegToEdit) => {
     const editedMainKegList = this.state.mainKegList
-      .filter(keg => keg.id !== this.state.selectedKeg.id)
-      .concat(kegToEdit);
+      .map(thisKeg => 
+        (thisKeg.id === this.state.selectedKeg.id) ?
+          ({...kegToEdit}) :
+          ({...thisKeg})
+        )
     this.setState({
         mainKegList: editedMainKegList,
         editing: false,
