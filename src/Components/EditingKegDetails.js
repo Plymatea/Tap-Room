@@ -9,10 +9,10 @@ function EditKeg (props) {
     props.onEditingKegInList({
       name: e.target.name.value, 
       brand: e.target.brand.value, 
-      price: e.target.price.value, 
+      price: parseFloat(e.target.price.value).toFixed(2), 
       abv: e.target.abv.value, 
-      pintsRemaining: e.target.pintsRemaining.value, 
-      pintsWhenFull: e.target.pintWhenFull.value,
+      pintsRemaining: parseInt(e.target.pintsRemaining.value), 
+      pintsWhenFull: parseInt(e.target.pintWhenFull.value),
       id: props.selectedKeg.id,
     })
   }

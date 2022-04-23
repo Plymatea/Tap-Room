@@ -3,6 +3,7 @@ import KegList from "./KegList";
 import KegDetail from "./KegDetail";
 import EditingKegDetails from "./EditingKegDetails";
 import ReusableForm from "./ReusableForm";
+import { v4 } from 'uuid';
 
 
 class KegControl extends React.Component {
@@ -17,20 +18,20 @@ class KegControl extends React.Component {
         {
           name: 'Cider',
           brand: 'Portland Cider Company',
-          price: 6.5,
+          price: 6.50.toFixed(2),
           abv: "5%",
           pintsRemaining: 10,
           pintsWhenFull: 124,
-          id: 1
+          id: "1"
         },
         {
           name: 'Ale',
           brand: 'Widmer',
-          price: 5.5,
+          price: 5.50.toFixed(2),
           abv: "5.5%",
           pintsRemaining: 90,
           pintsWhenFull: 124,
-          id: 2
+          id: "2"
         },
       ],
     };
@@ -88,11 +89,11 @@ class KegControl extends React.Component {
     this.addingNewKegInList({
       name: e.target.name.value, 
       brand: e.target.brand.value, 
-      price: e.target.price.value, 
+      price: parseFloat(e.target.price.value).toFixed(2), 
       abv: e.target.abv.value, 
-      pintsRemaining: e.target.pintsRemaining.value, 
-      pintsWhenFull: e.target.pintWhenFull.value,
-      id: (this.state.mainKegList.length + 1),
+      pintsRemaining: parseInt(e.target.pintsRemaining.value), 
+      pintsWhenFull: parseInt(e.target.pintWhenFull.value),
+      id: v4(),
     })
   }
 

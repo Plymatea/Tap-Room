@@ -32,9 +32,9 @@ Keg.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
   abv: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   pintsRemaining: PropTypes.number,
-  id: PropTypes.number,
+  id: PropTypes.string,
   pintWhenFull: PropTypes.number,
 }
 
