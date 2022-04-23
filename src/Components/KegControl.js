@@ -56,7 +56,7 @@ class KegControl extends React.Component {
 
   handleSellingPint = (id) => {
     const editedMainKegList = this.state.mainKegList.map((keg) => 
-      keg.id === id ? ({...keg, pintsRemaining: keg.pintsRemaining-1 }) : ({...keg}))
+      keg.id === id ? ({...keg, pintsRemaining: Math.max(keg.pintsRemaining-1, 0) }) : ({...keg}))
     this.setState({
     mainKegList: editedMainKegList,
     selectedKeg: null
