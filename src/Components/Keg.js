@@ -12,17 +12,15 @@ function Keg (props) {
 
   return (
     <React.Fragment>
-        <div onClick = { ()=> props.onSelectKegClick(props.id)}>
+      <div onClick = { ()=> props.onSelectKegClick(props.id)}>
         <h3>{props.name} - {props.brand}</h3>
         <p><em>ABV: {props.abv} - Pnt: ${props.price}</em></p>
-        <p>
-          Pints Remaining: {props.pintsRemaining} 
-          <div className="stockLevel">{stockLevel}</div> 
-        </p>
-        </div>
-        <button onClick={ () => props.onSellingPint(props.id)}>Sell a Pint</button>
-        
-        <hr/>
+        <p>Pints Remaining: {props.pintsRemaining}</p>
+        <div className="stockLevel">{stockLevel}</div> 
+      </div>
+      <button onClick={ () => props.onSellingPint(props.id)}>Sell a Pint</button>
+      
+      <hr/>
     </React.Fragment>
   );
 };

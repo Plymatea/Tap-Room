@@ -2,6 +2,7 @@ import React from "react";
 import KegList from "./KegList";
 import KegDetail from "./KegDetail";
 import EditingKegDetails from "./EditingKegDetails";
+import ReusableForm from "./ReusableForm";
 
 
 class KegControl extends React.Component {
@@ -11,6 +12,7 @@ class KegControl extends React.Component {
     this.state = {
       selectedKeg: null,
       editing: false,
+      adding: false,
       mainKegList: [
         {
           name: 'Cider',
@@ -66,6 +68,35 @@ class KegControl extends React.Component {
     })
   }
 
+  handleNewKegClick = () => {
+    this.setState({
+      selectedKeg: null,
+      editing: false,
+      adding: true,
+    })
+  }
+
+  onNewKegFormSubmission = (e) => {
+    e.preventDefault();
+    this.addingNewKegInList({
+      name: e.target.name.value, 
+      brand: e.target.brand.value, 
+      price: e.target.price.value, 
+      abv: e.target.abv.value, 
+      pintsRemaining: e.target.pintsRemaining.value, 
+      pintsWhenFull: e.target.pintWhenFull.value,
+      id: (this.state.mainKegList.length + 1),
+    })
+  }
+
+  addingNewKegInList = (newKeg) => {
+    const newMainKegList = this.state.mainKegList.concat(newKeg)
+    this.setState({
+      mainKegList: newMainKegList,
+      adding: false
+    })
+  }
+
   render() {
     let currentlyVisibleState = null
     if (this.state.selectedKeg != null && this.state.editing){
@@ -81,8 +112,7 @@ class KegControl extends React.Component {
           />
         </React.Fragment>
       )
-    } 
-    else if (this.state.selectedKeg != null) {
+    } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = (
         <React.Fragment>
           <KegDetail 
@@ -91,9 +121,19 @@ class KegControl extends React.Component {
           />
         </React.Fragment>
       )
+    } else if (this.state.adding) {
+      currentlyVisibleState = (
+          <ReusableForm 
+            formSubmissionHandler={this.onNewKegFormSubmission}
+            buttonText="Add New Keg"
+            selectedKeg={{}}
+          />
+      )
     }
+
     return (
       <React.Fragment>
+        <button onClick={()=>this.handleNewKegClick()}>Add new keg</button>
         <KegList 
         onSellingPint ={this.handleSellingPint}
         kegList ={this.state.mainKegList}
