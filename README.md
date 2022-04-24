@@ -1,4 +1,34 @@
-# Getting Started with Create React App
+# _Fiore's Taphouse_
+
+#### By **_Andy Plymate_**
+
+#### _A webpage utilizing React to track pints left in various kegs_
+
+## Technologies Used
+
+* _React_
+* _HTML5_
+* _JavaScript_
+
+## Description
+
+_The goal of the project to to utilize React and create a web app where the user can enter create "kegs, display and edit them. A button to "sell" a pint from the keg and update the remaining pints in that keg._
+
+## Setup/Installation Requirements
+* _Requires VSCode_
+
+* _You can find the github repository [here](https://github.com/Plymatea/Tap-Room.git)_
+* _In your preferred terminal, navigate to the directory you would like to store the project_
+* _$ `git clone https://github.com/Plymatea/Tap-Room.git`_
+* _Now that the repository is cloned to your computer, right click on the folder and click "open with vs code"_
+* _Navigate your terminal to the project folder and run $ `npm start` to start the development server. 
+
+## Component Map
+
+![Fiore's Taphouse Map](public\ComponentMap.png "Component Map")
+
+
+## Create React App documentation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +98,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Known Bugs
+
+* _No Known Bugs_
+
+## Road Map
+
+* _Need styling on the page._
+* _An inventory system to included tapped kegs and kegs-yet-to-be-tapped._
+* _Create a transaction table to log each sold pint, complete with timestamp and pricing. This would allow alot of data metrics. _
+
+
+## License - [MIT](https://opensource.org/licenses/MIT)
+
+
+Copyright (c) _2022_ _Andy Plymate_
